@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/xmi/boveda/issues"
   },
-  "homepage": "https://github.com/xmi/boveda#readme"
+  "homepage": "https://github.com/xmi/boveda#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
