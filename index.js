@@ -1,13 +1,20 @@
-const http = require("http");
 var express = require("express")
 
-const hostname = '127.0.0.1';
 const port = 3000;
-const fallbackPath = "./web/fallback.png";
+const app = express();
 
-var app = express();
-
+// Static files
 app.use(express.static("web"));
 
+// Path to get any specific info
+app.get("/get", function (req, res) {
+	res.send("GET test");
+})
+
+// Path to set variables etc.
+app.get("/set", function (req, res) {
+	res.send("SET test");
+})
+
 app.listen(port);
-console.log("API on " + port);
+console.log("serving on " + port);
