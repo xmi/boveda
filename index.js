@@ -17,7 +17,7 @@ app.get("/get/:param", function (req, res) {
 
 	console.log(`${req.ip} asked for ${parameter} (= ${value})`);
 
-	res.send(parameter);
+	res.send(JSON.stringify(value));
 })
 
 // Path to set variables etc.
