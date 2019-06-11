@@ -3,8 +3,8 @@ const fs = require('fs');
 var path = require('path');
 
 const app = express();
-const configPath = "./config.json";
-const imagePath = "web/img/"
+const configPath = "./web/config.json";
+const imagePath = "./web/img/"
 var images = getImagesList(imagePath);
 var photoCounter = 0;
 
@@ -12,17 +12,6 @@ var config = JSON.parse(fs.readFileSync(configPath));
 
 // Static files
 app.use(express.static("web"));
-
-// Path to get info from config file
-app.get("/get/cfg/:param", function (req, res) {
-	// Always ask for settings on /get/{param}
-	var parameter = req.params.param;
-	var value = config[parameter] || "ERROR";
-
-	console.log(`${req.ip} asked for ${parameter} (= ${value})`);
-
-	res.send(JSON.stringify(value));
-})
 
 // Path to get next photo
 app.get("/get/photo", function (req, res) {
