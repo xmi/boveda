@@ -3,7 +3,7 @@ var config;
 
 const configRefreshInterval = 5 * 60 * 1000;
 setInterval(() => {
-    $.getJSON("get/web", function (data) {
+    $.getJSON("get/web/cfg", function (data) {
         config = data;
     });
 }, configRefreshInterval);
