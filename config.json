@@ -1,7 +1,0 @@
-{
-    "web": {
-        "cycleInterval": 5000,
-        "malditaPerImage": 0.25
-    },
-    "port": 3000
-}
