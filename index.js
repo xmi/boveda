@@ -24,12 +24,33 @@ app.get("/get/photo", function (req, res) {
 	}
 })
 
-// Path to set variables etc.
-app.get("/set", function (req, res) {
-	res.send("SET test");
+// Reload the config file
+app.get("/refresh", function (req, res) {
+	console.log(`Refreshing server by request of ${req.ip}`)
+	httpServer.close();
+	httpServer.listen(config.port);
 })
 
-app.listen(config.port);
+// Path to set variables etc.
+app.get("/set", function (req, res) {
+	console.log(req.query);
+	var tempConfig = config;
+
+	// TEMP:
+	// clients should call /refresh to save changes
+	tempConfig.port = req.query.port || config.port;
+	tempConfig.malditaPerImage = req.query.malditaPerImage || config.malditaPerImage;
+	tempConfig.cycleInterval = req.query.cycleInterval || config.cycleInterval;
+
+	fs.writeFile(configPath, JSON.stringify(tempConfig), function (err) {
+		if (err) return console.log(err);
+		console.log(JSON.stringify(tempConfig));
+		console.log('writing to ' + configPath);
+	});
+})
+
+httpServer = require('http').createServer(app);
+httpServer.listen(config.port);
 console.log("serving on " + config.port);
 
 function getImagesList(path) {
