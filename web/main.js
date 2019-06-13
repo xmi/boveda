@@ -19,8 +19,6 @@ $.getJSON("config.json", function (data) {
 
     setInterval(() => {
         if (Math.random() > config.malditaPerImage) {
-            //clear previous image
-            $("#bg").attr("style", "background-image: url(fallback.png)");
             //show image
             // counter to force browser to ignore cache
             $("#bg").attr("style", `background-image: url(get/photo?${counter++})`);
