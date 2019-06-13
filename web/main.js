@@ -1,4 +1,5 @@
 var config = null;
+var counter = 0;
 // First time
 $.getJSON("config.json", function (data) {
     console.log(data);
@@ -21,8 +22,8 @@ $.getJSON("config.json", function (data) {
             //clear previous image
             $("#bg").attr("style", "background-image: url(fallback.png)");
             //show image
-            // foo=bar to force refreshing
-            $("#bg").attr("style", "background-image: url(get/photo?foo=bar)");
+            // counter to force browser to ignore cache
+            $("#bg").attr("style", `background-image: url(get/photo?${counter++})`);
             console.log("imagen");
         } else {
             //show article
@@ -32,3 +33,6 @@ $.getJSON("config.json", function (data) {
 }).fail(() => {
     console.log("Cant get config")
 });
+
+// https://backend.maldita.es/api/recentdebunks
+// https://backend.maldita.es/uploads/debunks/xxx
