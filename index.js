@@ -8,6 +8,7 @@ const imagePath = "./web/img/"
 var images = getImagesList(imagePath);
 var photoCounter = 0;
 
+// Port must be between 1000 and 10000
 var config = JSON.parse(fs.readFileSync(configPath));
 
 // Static files
