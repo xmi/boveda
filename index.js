@@ -19,7 +19,7 @@ app.get("/get/photo", function (req, res) {
 	// Always ask for photo on /get/photo
 
 	// Send next file and increase counter
-	res.sendFile(path.join(__dirname, imagePath, images[photoCounter++]))
+	res.sendFile(`/home/pi/boveda/web/img/${images[photoCounter++]}`)
 	if (photoCounter >= images.length) {
 		photoCounter = 0;
 	}
