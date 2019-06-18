@@ -1,5 +1,10 @@
 var config = null;
 var counter = 0;
+
+// Change the html in the iframe to ccenter the image
+var foo = 0;
+$("#bg").contents().find("img").wrap('<div style="display:flex;justify-content:center;align-items:center;"> </div>')
+
 // First time
 $.getJSON("config.json", function (data) {
     console.log(data);
@@ -18,15 +23,14 @@ $.getJSON("config.json", function (data) {
 
 
     setInterval(() => {
-        if (Math.random() > config.malditaPerImage) {
-            //show image
-            // counter to force browser to ignore cache
-            $("#bg").attr("style", `background-image: url(get/photo?${counter++})`);
-            console.log("imagen");
-        } else {
-            //show article
-            console.log("articulo");
-        }
+        // Change the html in the iframe to ccenter the image
+        $("#bg").contents().find("img").wrap('<div style="display:flex;justify-content:center;align-items:center;"> </div>')
+
+        // counter to force browser to ignore cache
+        $("iframe").attr("src", `/get/photo?${counter++}`);
+
+        // Change the html in the iframe to ccenter the image
+        $("#bg").contents().find("img").wrap('<div style="display:flex;justify-content:center;align-items:center;"> </div>')
     }, config.cycleInterval);
 }).fail(() => {
     console.log("Cant get config")
