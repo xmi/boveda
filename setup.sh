@@ -14,6 +14,6 @@ sudo ufw allow 1000:10000/tcp
 systemctl enable ssh
 
 # Auto start script at start up
-echo "npm start --prefix ${pwd}" >> ~/.bashrc
+echo "npm start --prefix ${pwd}" >> /home/pi/.bashrc
 
 reboot
