@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=RPi-infoscreen
+Comment=Boveda GUI
+NoDisplay=false
+Exec=/usr/bin/lxterminal -e /home/pi/boveda/start.sh
+NotShowIn=GNOME;KDE;XFCE;
