@@ -18,4 +18,7 @@ chmod a+x start.sh
 # Auto start script at start up
 cp RPi-infoscreen.desktop /etc/xdg/autostart/
 
+# Append to autostart
+echo "@lxterminal -e npm start /home/pi/boveda/" > /home/pi/.config/lxsession/LXDE-pi/autostart
+
 reboot
