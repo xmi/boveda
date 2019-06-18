@@ -1,4 +1,4 @@
-apt-get update && apt-get upgrade
+apt-get update
 
 apt-get install npm
 apt-get install chromium-browser
@@ -14,6 +14,6 @@ sudo ufw allow 1000:10000/tcp
 systemctl enable ssh
 
 # Auto start script at start up
-echo "npm start --prefix ${pwd}" >> /home/pi/.bashrc
+cp RPi-infoscreen.desktop /etc/xdg/autostart/
 
 reboot
