@@ -28,6 +28,8 @@ app.get("/get/photo", function (req, res) {
 // Reload the config file
 app.get("/refresh", function (req, res) {
 	console.log(`Refreshing server by request of ${req.ip}`)
+	photoCounter = 0;
+	res.send("OK")
 	httpServer.close();
 	httpServer.listen(config.port);
 })
@@ -43,11 +45,17 @@ app.get("/set", function (req, res) {
 	tempConfig.malditaPerImage = req.query.malditaPerImage || config.malditaPerImage;
 	tempConfig.cycleInterval = req.query.cycleInterval || config.cycleInterval;
 
+	
 	fs.writeFile(configPath, JSON.stringify(tempConfig), function (err) {
-		if (err) return console.log(err);
-		console.log(JSON.stringify(tempConfig));
+		if (err) {
+			res.send("not OK")
+			console.log(err);
+			return 
+		}
+			console.log(JSON.stringify(tempConfig));
 		console.log('writing to ' + configPath);
 	});
+	res.send("OK")
 })
 
 httpServer = require('http').createServer(app);
