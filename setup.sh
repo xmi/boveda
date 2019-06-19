@@ -28,7 +28,7 @@ echo "@xset -dpms" >> /home/pi/.config/lxsession/LXDE-pi/autostart
 echo "@xset s noblank" >> /home/pi/.config/lxsession/LXDE-pi/autostart
 
 echo "@npm start /home/pi/boveda/" >> /home/pi/.config/lxsession/LXDE-pi/autostart
-echo "@chromium-browser --kiosk http://google.com/" >> /home/pi/.config/lxsession/LXDE-pi/autostart
+echo "@chromium-browser --kiosk http://127.0.0.1:3000/" >> /home/pi/.config/lxsession/LXDE-pi/autostart
 
 
 
