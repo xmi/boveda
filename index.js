@@ -58,6 +58,6 @@ function getImagesList(path) {
 	var filenames = fs.readdirSync(path);
 	return filenames.filter((filename) => {
 		// Only add files that are .jp(e)g, .png or .gif
-		return filename.match(/\.(jpe?g|png|gif)$/);
+		return filename.match(/\.(jpe?g|png|gif|mp4)$/);
 	});
 }
