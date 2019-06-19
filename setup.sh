@@ -15,6 +15,9 @@ systemctl enable ssh
 
 chmod a+x start.sh
 
+# Change owner of img folder
+chown pi:pi /home/pi/boveda/web/img/
+
 # Auto start script at start up
 cp RPi-infoscreen.desktop /etc/xdg/autostart/
 
