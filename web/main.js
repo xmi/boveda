@@ -41,6 +41,8 @@ $.getJSON("config.json", function (data) {
             wait = config.cycleInterval;
         }
 
+        $("#media", $("#bg").contents()).wrap('<div style="display:flex;justify-content:center;align-items:center;"> </div>');
+
         await sleep(wait);
         // wait a bit to not overload browsers
         await sleep(200);
