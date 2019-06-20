@@ -29,8 +29,9 @@ app.get("/get/photo", function (req, res) {
 app.get("/refresh", function (req, res) {
 	console.log(`Refreshing server by request of ${req.ip}`)
 	photoCounter = 0;
-	res.send("OK")
+	res.send("OK");
 	httpServer.close();
+	images = getImagesList(imagePath);
 	httpServer.listen(config.port);
 })
 
