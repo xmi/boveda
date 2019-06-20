@@ -13,7 +13,7 @@ $.getJSON("config.json", function (data) {
     // config.malditaPerImage: aprox maldita articles to be shown per image
 
     // Automated refresh of config
-    const configRefreshInterval = 5 * 60 * 1000;
+    const configRefreshInterval = 30 * 1000;
     setInterval(() => {
         console.log("REfreshing config")
         $.getJSON("config.json", function (data) {
